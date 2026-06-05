@@ -73,6 +73,43 @@ Complete Payment
 </div>
 
 </div>
+    <script>
+
+document
+.getElementById("paymentForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const transactionId =
+        "TXN" + Date.now();
+
+    const amount =
+        document.getElementById("amount").value;
+
+    const policyNumber =
+        document.getElementById("policyNumber").value;
+
+    // GA4 Purchase Event
+    window.dataLayer = window.dataLayer || [];
+
+    dataLayer.push({
+        event: "purchase",
+        transaction_id: transactionId,
+        value: amount,
+        currency: "USD",
+        policy_number: policyNumber
+    });
+
+    window.location.href =
+        "https://payment-success.html" +
+        "?txn=" + transactionId +
+        "&amount=" + amount +
+        "&policy=" + policyNumber;
+
+});
+
+</script>
 
 </body>
 </html>
