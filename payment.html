@@ -110,6 +110,20 @@ document
 });
 
 </script>
-
+<script>
+window.dataLayer = window.dataLayer || [];
+   dataLayer.push({
+  event: "payment_page_view"
+});
+dataLayer.push({
+  event: "add_payment_info",
+  payment_type: "Credit Card",
+  value: 400
+});
+dataLayer.push({
+  event: "payment_submit",
+  policy_number: "POL123456"
+});
+</script>
 </body>
 </html>
